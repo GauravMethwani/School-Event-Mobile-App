@@ -1,0 +1,77 @@
+// import React, { useEffect, useRef } from 'react';
+// import {
+//   Animated,
+//   Text,
+//   View,
+//   StyleSheet,
+//   Dimensions,
+// } from 'react-native';
+
+// const { width } = Dimensions.get('window');
+
+// const CustomToast = ({ message = '', visible, onHide }) => {
+//   const slide = useRef(new Animated.Value(-100)).current;
+
+//   useEffect(() => {
+//     if (visible) {
+//       // Show toast
+//       Animated.timing(slide, {
+//         toValue: 0,
+//         duration: 300,
+//         useNativeDriver: true,
+//       }).start();
+
+//       // Hide toast after 3 seconds
+//       const timeout = setTimeout(() => {
+//         Animated.timing(slide, {
+//           toValue: -100,
+//           duration: 300,
+//           useNativeDriver: true,
+//         }).start(() => {
+//           if (onHide) onHide();
+//         });
+//       }, 3000);
+
+//       return () => clearTimeout(timeout);
+//     }
+//   }, [visible]);
+
+//   if (!visible) return null;
+
+//   return (
+//   <Animated.View style={[styles.container, { transform: [{ translateY: slideAnimation }] }]}>
+//       <TouchableOpacity
+//         style={styles.touch}
+//         activeOpacity={0.7}
+//         onPress={() => {
+//           navigation.navigate('DiscussionForum', { data });
+//           if (onHide) onHide();
+//         }}
+//       >
+//         <Text style={styles.title} numberOfLines={1}>{data?.name || 'New Notification'}</Text>
+//         <Text style={styles.message} numberOfLines={1}>{data?.message || 'You have a new message'}</Text>
+//       </TouchableOpacity>
+//     </Animated.View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   toastContainer: {
+//     position: 'absolute',
+//     top: 40,
+//     alignSelf: 'center',
+//     backgroundColor: '#333',
+//     paddingHorizontal: 20,
+//     paddingVertical: 10,
+//     borderRadius: 8,
+//     zIndex: 999,
+//     width: width * 0.9,
+//   },
+//   toastText: {
+//     color: '#fff',
+//     fontSize: 14,
+//     textAlign: 'center',
+//   },
+// });
+
+// export default SimpleToast;
